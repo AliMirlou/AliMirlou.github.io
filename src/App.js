@@ -114,17 +114,118 @@ export default function Resume() {
         <section id="about" className="mb-5 lg:mb-12">
           <h2 className="text-xl lg:text-3xl text-teal-500 mb-3">About Me</h2>
           <p className="dark:text-gray-200 lg:text-lg lg:leading-relaxed">
-            Innovative Full-Stack Web Developer and DevOps Engineer. Expertise in microservices architecture, cloud infrastructure, container orchestration, CI/CD pipelines, and
-            developing complex systems using technologies like Next.js, Django, Kubernetes, and emerging AI technologies.
-          </p>
-          <p className="dark:text-gray-200 lg:text-lg lg:leading-relaxed mt-3">
             Passionate about delivering user-focused solutions in fast-paced environments, whatever the challenges and technologies may be.
+          </p>
+          <p className="dark:text-gray-200 lg:text-lg lg:leading-relaxed mt-2">
+            Innovative Full-Stack Web Developer and DevOps Engineer. Expertise in microservices architecture,
+            cloud infrastructure, container orchestration, CI/CD pipelines, and developing complex systems
+            using technologies like Next.js, Django, Kubernetes, and emerging AI technologies.
           </p>
         </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-12" style={{direction: "rtl"}}>
+          {/* Information & Skills */}
+          <section id="info" className="dark:text-gray-200 lg:col-span-2 md:grid md:grid-cols-3 lg:block md:gap-8 space-y-8 md:space-y-0 lg:space-y-8" style={{direction: "ltr"}}>
+            {/* Personal Information */}
+            <div className="space-y-2 col-span-2">
+              <h3 className="text-xl lg:text-2xl text-teal-500 mb-4">Information</h3>
+              <InfoItem label="Location">Tehran, Iran</InfoItem>
+              <div className="w-32 h-0.5 bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent" />
+              <InfoItem label="Email">alimirlou@gmail.com</InfoItem>
+              <div className="w-32 h-0.5 bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent print:hidden" />
+              <InfoItem label="Languages" className="print:hidden">
+                <div className="space-y-3">
+                  <div>Persian (Native)</div>
+                  <div className="w-16 h-[0.07rem] bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent" />
+                  <div>English (Professional)</div>
+                </div>
+              </InfoItem>
+              <div className="w-32 h-0.5 bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent" />
+              <InfoItem label="Education">
+                <div className="space-y-3 text-xs lg:text-base">
+                  <div>MSc Data Mining, Shahid Beheshti University (2020-2022)</div>
+                  <div className="w-16 h-[0.08rem] bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent"></div>
+                  <div>BSc Computer Science, Shahid Beheshti University (2015-2020)</div>
+                  <div className="w-16 h-[0.09rem] bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent"></div>
+                  <div>NODET, Physics and Mathematical Sciences (2011-2015)</div>
+                </div>
+              </InfoItem>
+            </div>
+
+            {/* Links Section */}
+            <div className="print:break-inside-avoid">
+              <h3 className="text-xl lg:text-2xl text-teal-500 mb-4">Links</h3>
+              <div className="space-y-2">
+                <LinkItem
+                  href="tel:+989382470510"
+                  icon={FaPhone}
+                >
+                  +98 938 247 0510
+                </LinkItem>
+                <LinkItem
+                  href="https://wa.me/989382470510"
+                  icon={FaWhatsapp}
+                  className="print:hidden"
+                >
+                  WhatsApp
+                </LinkItem>
+                <LinkItem
+                  href="https://linkedin.com/in/alimirlou"
+                  icon={FaLinkedin}
+                >
+                  linkedin.com/in/alimirlou
+                </LinkItem>
+                <LinkItem
+                  href="https://github.com/AliMirlou"
+                  icon={FaGithub}
+                >
+                  github.com/AliMirlou
+                </LinkItem>
+                <LinkItem
+                  href="https://AliMirlou.github.io"
+                  icon={FaGlobe}
+                  className="print:hidden"
+                >
+                  AliMirlou.github.io
+                </LinkItem>
+                <LinkItem
+                  href="https://t.me/AliMirlou"
+                  icon={FaTelegram}
+                  className="print:hidden"
+                >
+                  t.me/AliMirlou
+                </LinkItem>
+                <LinkItem
+                  href="https://www.instagram.com/alimirlou/"
+                  icon={FaInstagram}
+                  className="print:hidden"
+                >
+                  instagram.com/alimirlou
+                </LinkItem>
+                <LinkItem
+                  href="https://x.com/AliMirlou"
+                  icon={FaSquareXTwitter}
+                  className="print:hidden"
+                >
+                  x.com/AliMirlou
+                </LinkItem>
+                <LinkItem
+                  href="https://codeforces.com/profile/AliMirlou"
+                  icon={<img
+                    src="https://codeforces.org/s/93010/android-icon-192x192.png"
+                    alt="Codeforces"
+                    className="w-5 h-5 flex-shrink-0"
+                  />}
+                  className="print:hidden"
+                >
+                  codeforces.com/profile/AliMirlou
+                </LinkItem>
+              </div>
+            </div>
+          </section>
+
           {/* Work Experience */}
-          <section id="work" className="dark:text-gray-200 md:col-span-3">
+          <section id="work" className="dark:text-gray-200 lg:col-span-3" style={{direction: "ltr"}}>
             <h2 className="text-xl lg:text-3xl text-teal-500 mb-3 lg:mb-8">Work Experience</h2>
 
             {/* Timeline Items */}
@@ -307,103 +408,6 @@ export default function Resume() {
                 shortVersion={shortVersion}
                 darkMode={darkMode}
               />
-            </div>
-          </section>
-
-          {/* Information & Skills */}
-          <section id="info" className="dark:text-gray-200 md:col-span-2">
-            <h2 className="text-xl lg:text-3xl text-teal-500 mb-4 lg:mb-8">Information</h2>
-
-            <div className="space-y-8">
-              {/* Personal Information */}
-              <div className="space-y-2">
-                <InfoItem label="Location">Tehran, Iran</InfoItem>
-                <div className="w-32 h-0.5 bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent" />
-                <InfoItem label="Email">alimirlou@gmail.com</InfoItem>
-                <div className="w-32 h-0.5 bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent" />
-                <InfoItem label="Languages">
-                  <div className="space-y-3">
-                    <div>Persian (Native)</div>
-                    <div className="w-16 h-[0.07rem] bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent" />
-                    <div>English (Professional)</div>
-                  </div>
-                </InfoItem>
-                <div className="w-32 h-0.5 bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent" />
-                <InfoItem label="Education">
-                  <div className="space-y-3 text-xs lg:text-base">
-                    <div>MSc Data Mining, Shahid Beheshti University (2020-2022)</div>
-                    <div className="w-16 h-[0.08rem] bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent"></div>
-                    <div>BSc Computer Science, Shahid Beheshti University (2015-2020)</div>
-                    <div className="w-16 h-[0.09rem] bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent"></div>
-                    <div>NODET, Physics and Mathematical Sciences (2011-2015)</div>
-                  </div>
-                </InfoItem>
-              </div>
-
-              {/* Links Section */}
-              <div className="print:pt-8 print:break-inside-avoid">
-                <h3 className="text-xl lg:text-2xl text-teal-500 mb-4">Links</h3>
-                <div className="space-y-2">
-                  <LinkItem
-                    href="tel:+989382470510"
-                    icon={FaPhone}
-                  >
-                    +98 938 247 0510
-                  </LinkItem>
-                  <LinkItem
-                    href="https://wa.me/989382470510"
-                    icon={FaWhatsapp}
-                  >
-                    WhatsApp
-                  </LinkItem>
-                  <LinkItem
-                    href="https://linkedin.com/in/alimirlou"
-                    icon={FaLinkedin}
-                  >
-                    linkedin.com/in/alimirlou
-                  </LinkItem>
-                  <LinkItem
-                    href="https://github.com/AliMirlou"
-                    icon={FaGithub}
-                  >
-                    github.com/AliMirlou
-                  </LinkItem>
-                  <LinkItem
-                    href="https://AliMirlou.github.io"
-                    icon={FaGlobe}
-                  >
-                    AliMirlou.github.io
-                  </LinkItem>
-                  <LinkItem
-                    href="https://t.me/AliMirlou"
-                    icon={FaTelegram}
-                  >
-                    t.me/AliMirlou
-                  </LinkItem>
-                  <LinkItem
-                    href="https://www.instagram.com/alimirlou/"
-                    icon={FaInstagram}
-                  >
-                    instagram.com/alimirlou
-                  </LinkItem>
-                  <LinkItem
-                    href="https://x.com/AliMirlou"
-                    icon={FaSquareXTwitter}
-                  >
-                    x.com/AliMirlou
-                  </LinkItem>
-                  <LinkItem
-                    href="https://codeforces.com/profile/AliMirlou"
-                    icon={<img
-                      src="https://codeforces.org/s/93010/android-icon-192x192.png"
-                      alt="Codeforces"
-                      className="w-5 h-5 flex-shrink-0"
-                    />}
-                  >
-                    codeforces.com/profile/AliMirlou
-                  </LinkItem>
-                </div>
-              </div>
             </div>
           </section>
         </div>
