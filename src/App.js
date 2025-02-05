@@ -68,7 +68,7 @@ export default function Resume() {
             <h3 className="text-lg lg:text-2xl text-teal-500 mb-3">Skills</h3>
 
             <div className="grid grid-cols-[repeat(68,minmax(0,1fr))] lg:grid-cols-1 text-xs lg:text-base">
-              <div className="lg:my-2 col-[span_13] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.1px] after:h-full after:bg-gradient-to-b after:from-transparent after:via-emerald-500 after:to-transparent">
+              <div className="lg:my-2 col-[span_13] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.1px] after:h-full after:bg-gradient-to-b after:from-transparent after:via-emerald-500 after:to-transparent lg:after:hidden">
                 <h4 className="font-medium mb-2">Frontend Development</h4>
                 <div className="flex flex-wrap gap-1 lg:gap-2">
                   <SkillBadge name="Next.js" darkMode={darkMode} />
@@ -78,7 +78,7 @@ export default function Resume() {
                 </div>
               </div>
 
-              <div className="pl-1.5 lg:my-2 col-[span_15] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.5px] after:h-full after:bg-gradient-to-b after:from-transparent after:via-emerald-500 after:to-transparent before:absolute before:top-0 before:left-0 before:w-0.5 before:h-full before:bg-gradient-to-b before:from-transparent before:via-emerald-500 before:to-transparent">
+              <div className="md:pl-1.5 lg:p-0 lg:my-2 col-[span_15] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.5px] after:h-full after:bg-gradient-to-b after:from-transparent after:via-emerald-500 after:to-transparent before:absolute before:top-0 before:left-0 before:w-0.5 before:h-full before:bg-gradient-to-b before:from-transparent before:via-emerald-500 before:to-transparent lg:after:hidden lg:before:hidden">
                 <h4 className="font-medium mb-2">Backend Development</h4>
                 <div className="flex flex-wrap gap-1 lg:gap-2">
                   <SkillBadge name="Django" darkMode={darkMode} />
@@ -89,7 +89,7 @@ export default function Resume() {
                 </div>
               </div>
 
-              <div className="pl-1.5 lg:my-2 col-[span_13] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.5px] after:h-full after:bg-gradient-to-b after:from-transparent after:via-emerald-500 after:to-transparent before:absolute before:top-0 before:left-0 before:w-0.5 before:h-full before:bg-gradient-to-b before:from-transparent before:via-emerald-500 before:to-transparent">
+              <div className="md:pl-1.5 lg:p-0 lg:my-2 col-[span_13] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.5px] after:h-full after:bg-gradient-to-b after:from-transparent after:via-emerald-500 after:to-transparent before:absolute before:top-0 before:left-0 before:w-0.5 before:h-full before:bg-gradient-to-b before:from-transparent before:via-emerald-500 before:to-transparent lg:after:hidden lg:before:hidden">
                 <h4 className="font-medium mb-2">DevOps & Cloud</h4>
                 <div className="flex flex-wrap gap-1 lg:gap-2">
                   <SkillBadge name="Kubernetes" darkMode={darkMode} />
@@ -99,7 +99,7 @@ export default function Resume() {
                 </div>
               </div>
 
-              <div className="pl-1.5 lg:my-2 col-[span_18] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.5px] after:h-full after:bg-gradient-to-b after:from-transparent after:via-emerald-500 after:to-transparent before:absolute before:top-0 before:left-0 before:w-0.5 before:h-full before:bg-gradient-to-b before:from-transparent before:via-emerald-500 before:to-transparent">
+              <div className="md:pl-1.5 lg:p-0 lg:my-2 col-[span_18] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.5px] after:h-full after:bg-gradient-to-b after:from-transparent after:via-emerald-500 after:to-transparent before:absolute before:top-0 before:left-0 before:w-0.5 before:h-full before:bg-gradient-to-b before:from-transparent before:via-emerald-500 before:to-transparent lg:after:hidden lg:before:hidden">
                 <h4 className="font-medium mb-2">Databases & Message Queues</h4>
                 <div className="flex flex-wrap gap-1 lg:gap-2">
                   <SkillBadge name="PostgreSQL" darkMode={darkMode} />
@@ -110,7 +110,7 @@ export default function Resume() {
                 </div>
               </div>
 
-              <div className="pl-1.5 lg:my-2 col-span-9 lg:col-span-1 relative before:absolute before:top-0 before:left-0 before:w-[1px] before:h-full before:bg-gradient-to-b before:from-transparent before:via-emerald-500 before:to-transparent">
+              <div className="md:pl-1.5 lg:p-0 lg:my-2 col-span-9 lg:col-span-1 relative before:absolute before:top-0 before:left-0 before:w-[1px] before:h-full before:bg-gradient-to-b before:from-transparent before:via-emerald-500 before:to-transparent lg:before:hidden">
                 <h4 className="font-medium mb-2">Other Tools</h4>
                 <div className="flex flex-wrap gap-1 lg:gap-2">
                   <SkillBadge name="Git" darkMode={darkMode} />
