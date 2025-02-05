@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import TimelineCompany from './components/TimelineCompany'
 import InfoItem from './components/InfoItem'
-import { FaLinkedin, FaGithub, FaGlobe, FaPrint, FaSun, FaMoon, FaNoteSticky, FaBookOpen, FaSquareXTwitter, FaInstagram, FaTelegram, FaPhone, FaWhatsapp } from 'react-icons/fa6'
+import { FaLinkedin, FaGithub, FaGlobe, FaPrint, FaSun, FaMoon, FaNoteSticky, FaBookOpen, FaSquareXTwitter, FaInstagram, FaTelegram, FaPhone, FaWhatsapp, FaEnvelope } from 'react-icons/fa6'
 import LinkItem from './components/LinkItem'
 import SkillBadge from './components/SkillBadge'
 
@@ -48,13 +48,11 @@ export default function Resume() {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-8 py-4 lg:py-8 grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-12" style={{direction: "rtl"}}>
         {/* About Me Section */}
-        <section id="about" className="col-span-1 lg:col-span-5" style={{direction: "ltr"}}>
+        <section id="about" className="col-span-1 lg:col-span-5 text-sm lg:text-lg lg:leading-relaxed" style={{direction: "ltr"}}>
           <h2 className="text-lg lg:text-3xl text-teal-500 mb-3">About Me</h2>
 
-          <p className="text-sm lg:text-lg lg:leading-relaxed">
-            Passionate about delivering user-focused solutions in fast-paced environments, whatever the challenges and technologies may be.
-          </p>
-          <p className="text-sm lg:text-lg lg:leading-relaxed mt-2">
+          Passionate about delivering user-focused solutions in fast-paced environments, whatever the challenges and technologies may be.
+          <p className="mt-2">
             Innovative Full-Stack Web Developer and DevOps Engineer. Expertise in microservices architecture,
             cloud infrastructure, container orchestration, CI/CD pipelines, and developing complex systems
             using technologies like Next.js, Django, Kubernetes, and emerging AI technologies.
@@ -67,7 +65,7 @@ export default function Resume() {
           <div className="md:col-span-3 lg:col-span-1 print:break-inside-avoid">
             <h3 className="text-xl lg:text-2xl text-teal-500 mb-3">Skills</h3>
 
-            <div className="grid md:grid-cols-3 lg:grid-cols-1 gap-1 text-sm lg:text-base">
+            <div className="grid md:grid-cols-4 lg:grid-cols-1 gap-1 text-sm lg:text-base">
               <div className="my-1">
                 <h4 className="font-medium mb-2">Frontend Development</h4>
                 <div className="flex flex-wrap gap-1 lg:gap-2">
@@ -121,29 +119,21 @@ export default function Resume() {
           </div>
 
           {/* Personal Information */}
-          <div className="space-y-2 col-span-2">
+          <div className="space-y-1 lg:space-y-2 col-span-2">
             <h3 className="text-xl lg:text-2xl text-teal-500 mb-3">Information</h3>
             <InfoItem label="Location">Tehran, Iran</InfoItem>
             <div className="w-32 h-0.5 bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent" />
-            <InfoItem label="Date of birth">Nov 17, 1996</InfoItem>
+            <InfoItem label="Date of birth">November 17, 1996</InfoItem>
             <div className="w-32 h-0.5 bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent" />
-            <InfoItem label="Email">alimirlou@gmail.com</InfoItem>
+            <InfoItem label="Languages" className="print:hidden">Persian (Native), English (Professional)</InfoItem>
             <div className="w-32 h-0.5 bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent print:hidden" />
-            <InfoItem label="Languages" className="print:hidden">
-              <div className="space-y-3">
-                <div>Persian (Native)</div>
-                <div className="w-16 h-[0.07rem] bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent" />
-                <div>English (Professional)</div>
-              </div>
-            </InfoItem>
-            <div className="w-32 h-0.5 bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent" />
             <InfoItem label="Education">
-              <div className="space-y-3 text-xs lg:text-base">
-                <div>MSc Data Mining, Shahid Beheshti University (2020-2022)</div>
-                <div className="w-16 h-[0.08rem] bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent"></div>
-                <div>BSc Computer Science, Shahid Beheshti University (2015-2020)</div>
-                <div className="w-16 h-[0.09rem] bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent"></div>
-                <div>NODET, Physics and Mathematical Sciences (2011-2015)</div>
+              <div className="space-y-2 text-xs lg:text-base">
+                <p>MSc Data Mining, Shahid Beheshti University (2020-2022)</p>
+                {/* <div className="w-16 h-[0.08rem] bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent"></div> */}
+                <p>BSc Computer Science, Shahid Beheshti University (2015-2020)</p>
+                {/* <div className="w-16 h-[0.09rem] bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent"></div> */}
+                <p>NODET, Physics and Mathematical Sciences (2011-2015)</p>
               </div>
             </InfoItem>
           </div>
@@ -152,6 +142,12 @@ export default function Resume() {
           <div className="print:break-inside-avoid">
             <h3 className="text-xl lg:text-2xl text-teal-500 mb-3">Links</h3>
             <div className="space-y-2">
+              <LinkItem
+                href="mailto:alimirlou@gmail.com"
+                icon={FaEnvelope}
+              >
+                alimirlou@gmail.com
+              </LinkItem>
               <LinkItem
                 href="tel:+989382470510"
                 icon={FaPhone}
@@ -445,7 +441,7 @@ export default function Resume() {
       {/* Summary Toggle Button */}
       <button
         onClick={() => setShortVersion(!shortVersion)}
-        className="fixed bottom-4 right-16 z-10 p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg print:hidden group/sum"
+        className="fixed bottom-16 right-4 z-10 p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg print:hidden group/sum"
       >
         {shortVersion ? <FaBookOpen /> : <FaNoteSticky />}
         <span
@@ -455,7 +451,7 @@ export default function Resume() {
       </button>
 
       {/* Print Button with Dropdown */}
-      <div className="fixed bottom-16 right-4 z-10 print:hidden group">
+      <div className="fixed bottom-28 right-4 z-10 print:hidden group">
         <button
           onClick={() => {
             const ShortVersionCopy = shortVersion
