@@ -26,22 +26,22 @@ export default function Resume() {
   }, [darkMode])
 
   return (
-    <div className="min-h-screen text-white dark:text-gray-200">
+    <div className="min-h-screen dark:text-gray-200">
       {/* Header */}
-      <header className="flex flex-col mx-auto p-3 md:p-7 bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-emerald-500 dark:to-emerald-600 max-w-7xl">
-        <p className="text-sm">Curriculum Vitae</p>
-        <div className="flex items-end justify-between w-full">
+      <header className="flex justify-between p-3 md:p-7 bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-emerald-500 dark:to-emerald-600 max-w-7xl text-white">
+        <div className="flex flex-col items-start gap-2 justify-between">
+          <p className="text-sm">Curriculum Vitae</p>
           <div>
-            <h1 className="text-3xl md:text-5xl mb-2">Ali Mirlou</h1>
-            <h2 className="text-xl md:text-2xl font-light">Co-Founder and Software Engineer @ RoboEpics</h2>
+            <h1 className="text-3xl lg:text-5xl">Ali Mirlou</h1>
+            <h2 className="text-xl lg:text-2xl font-light">Co-Founder and Software Engineer @ RoboEpics</h2>
           </div>
-          <div className="size-24 md:size-32 rounded-full overflow-hidden border-4 border-white">
-            <img
-              src="/profile.jpg"
-              alt="Profile"
-              className="w-full h-full object-cover"
-            />
-          </div>
+        </div>
+        <div className="size-24 lg:size-32 rounded-full overflow-hidden border-4 border-white my-auto">
+          <img
+            src="/profile.jpg"
+            alt="Profile"
+            className="w-full h-full object-cover"
+          />
         </div>
       </header>
 
@@ -49,7 +49,7 @@ export default function Resume() {
       <main className="max-w-7xl mx-auto px-8 py-4 lg:py-8 grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-12" style={{direction: "rtl"}}>
         {/* About Me Section */}
         <section id="about" className="col-span-1 lg:col-span-5 text-sm lg:text-lg lg:leading-relaxed" style={{direction: "ltr"}}>
-          <h2 className="text-lg lg:text-3xl text-teal-500 mb-3">About Me</h2>
+          <h3 className="text-lg lg:text-3xl text-teal-500 mb-3">About Me</h3>
 
           Passionate about delivering user-focused solutions in fast-paced environments, whatever the challenges and technologies may be.
           <p className="mt-2">
@@ -63,10 +63,10 @@ export default function Resume() {
         <section id="info" className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-1 lg:col-span-2 gap-8 md:gap-4 h-fit" style={{direction: "ltr"}}>
           {/* Skills Section */}
           <div className="md:col-span-3 lg:col-span-1 print:break-inside-avoid">
-            <h3 className="text-xl lg:text-2xl text-teal-500 mb-3">Skills</h3>
+            <h3 className="text-lg lg:text-2xl text-teal-500 mb-3">Skills</h3>
 
-            <div className="grid md:grid-cols-4 lg:grid-cols-1 gap-1 text-sm lg:text-base">
-              <div className="my-1">
+            <div className="grid grid-cols-[repeat(68,minmax(0,1fr))] lg:grid-cols-1 text-xs lg:text-base">
+              <div className="lg:my-2 col-[span_13] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.1px] after:h-full after:bg-gradient-to-b after:from-transparent after:via-emerald-500 after:to-transparent">
                 <h4 className="font-medium mb-2">Frontend Development</h4>
                 <div className="flex flex-wrap gap-1 lg:gap-2">
                   <SkillBadge name="Next.js" darkMode={darkMode} />
@@ -76,7 +76,7 @@ export default function Resume() {
                 </div>
               </div>
 
-              <div className="my-1">
+              <div className="pl-1.5 lg:my-2 col-[span_15] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.5px] after:h-full after:bg-gradient-to-b after:from-transparent after:via-emerald-500 after:to-transparent before:absolute before:top-0 before:left-0 before:w-0.5 before:h-full before:bg-gradient-to-b before:from-transparent before:via-emerald-500 before:to-transparent">
                 <h4 className="font-medium mb-2">Backend Development</h4>
                 <div className="flex flex-wrap gap-1 lg:gap-2">
                   <SkillBadge name="Django" darkMode={darkMode} />
@@ -87,27 +87,28 @@ export default function Resume() {
                 </div>
               </div>
 
-              <div className="my-1">
+              <div className="pl-1.5 lg:my-2 col-[span_13] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.5px] after:h-full after:bg-gradient-to-b after:from-transparent after:via-emerald-500 after:to-transparent before:absolute before:top-0 before:left-0 before:w-0.5 before:h-full before:bg-gradient-to-b before:from-transparent before:via-emerald-500 before:to-transparent">
                 <h4 className="font-medium mb-2">DevOps & Cloud</h4>
                 <div className="flex flex-wrap gap-1 lg:gap-2">
                   <SkillBadge name="Kubernetes" darkMode={darkMode} />
                   <SkillBadge name="Docker" darkMode={darkMode} />
-                  <SkillBadge name="Azure" darkMode={darkMode} />
                   <SkillBadge name="GitLab" formattedName="gitlab" darkMode={darkMode} />
+                  <SkillBadge name="Azure" darkMode={darkMode} />
                 </div>
               </div>
 
-              <div className="my-1">
+              <div className="pl-1.5 lg:my-2 col-[span_18] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.5px] after:h-full after:bg-gradient-to-b after:from-transparent after:via-emerald-500 after:to-transparent before:absolute before:top-0 before:left-0 before:w-0.5 before:h-full before:bg-gradient-to-b before:from-transparent before:via-emerald-500 before:to-transparent">
                 <h4 className="font-medium mb-2">Databases & Message Queues</h4>
                 <div className="flex flex-wrap gap-1 lg:gap-2">
-                  <SkillBadge name="MongoDB" darkMode={darkMode} />
                   <SkillBadge name="PostgreSQL" darkMode={darkMode} />
                   <SkillBadge name="Elasticsearch" darkMode={darkMode} />
+                  <SkillBadge name="MongoDB" darkMode={darkMode} />
+                  <SkillBadge name="Redis" darkMode={darkMode} />
                   <SkillBadge name="RabbitMQ" formattedName="rabbitmq" darkMode={darkMode} />
                 </div>
               </div>
 
-              <div className="my-1">
+              <div className="pl-1.5 lg:my-2 col-span-9 lg:col-span-1 relative before:absolute before:top-0 before:left-0 before:w-[1px] before:h-full before:bg-gradient-to-b before:from-transparent before:via-emerald-500 before:to-transparent">
                 <h4 className="font-medium mb-2">Other Tools</h4>
                 <div className="flex flex-wrap gap-1 lg:gap-2">
                   <SkillBadge name="Git" darkMode={darkMode} />
@@ -120,7 +121,7 @@ export default function Resume() {
 
           {/* Personal Information */}
           <div className="space-y-1 lg:space-y-2 col-span-2">
-            <h3 className="text-xl lg:text-2xl text-teal-500 mb-3">Information</h3>
+            <h3 className="text-lg lg:text-2xl text-teal-500 mb-3">Information</h3>
             <InfoItem label="Location">Tehran, Iran</InfoItem>
             <div className="w-32 h-0.5 bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent" />
             <InfoItem label="Date of birth">November 17, 1996</InfoItem>
@@ -140,7 +141,7 @@ export default function Resume() {
 
           {/* Links Section */}
           <div className="print:break-inside-avoid">
-            <h3 className="text-xl lg:text-2xl text-teal-500 mb-3">Links</h3>
+            <h3 className="text-lg lg:text-2xl text-teal-500 mb-3">Links</h3>
             <div className="space-y-2">
               <LinkItem
                 href="mailto:alimirlou@gmail.com"
@@ -218,7 +219,7 @@ export default function Resume() {
 
         {/* Work Experience */}
         <section id="work" className="lg:col-span-3" style={{direction: "ltr"}}>
-          <h2 className="text-xl lg:text-3xl text-teal-500 mb-3 lg:mb-8">Work Experience</h2>
+          <h3 className="text-lg lg:text-3xl text-teal-500 mb-3 lg:mb-8">Work Experience</h3>
 
           {/* Timeline Items */}
           <div className="space-y-5 lg:space-y-12">
@@ -337,6 +338,7 @@ export default function Resume() {
                   skills: [
                     { name: "Express.js", formattedName: "express" },
                     { name: "PostgreSQL" },
+                    { name: "Redis" },
                     { name: "Vue.js" },
                     { name: "Kubernetes" },
                     { name: "Azure" }
