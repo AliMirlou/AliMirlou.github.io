@@ -28,20 +28,22 @@ export default function Resume() {
   return (
     <div className="min-h-screen dark:text-gray-200">
       {/* Header */}
-      <header className="flex justify-between p-3 md:p-7 bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-emerald-500 dark:to-emerald-600 max-w-7xl text-white">
-        <div className="flex flex-col items-start gap-2 justify-between">
-          <p className="text-sm">Curriculum Vitae</p>
-          <div>
-            <h1 className="text-3xl lg:text-5xl">Ali Mirlou</h1>
-            <h2 className="text-xl lg:text-2xl font-light">Co-Founder and Software Engineer @ RoboEpics</h2>
+      <header className="p-3 md:p-7 bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-emerald-500 dark:to-emerald-600 text-white">
+        <div className="max-w-7xl flex justify-between mx-auto">
+          <div className="flex flex-col items-start gap-2 justify-between">
+            <p className="text-sm">Curriculum Vitae</p>
+            <div>
+              <h1 className="text-3xl lg:text-5xl">Ali Mirlou</h1>
+              <h2 className="text-xl lg:text-2xl font-light">Co-Founder and Software Engineer @ RoboEpics</h2>
+            </div>
           </div>
-        </div>
-        <div className="size-24 lg:size-32 rounded-full overflow-hidden border-4 border-white my-auto">
-          <img
-            src="/profile.jpg"
-            alt="Profile"
-            className="w-full h-full object-cover"
-          />
+          <div className="size-24 lg:size-32 rounded-full overflow-hidden border-4 border-white my-auto">
+            <img
+              src="/profile.jpg"
+              alt="Profile"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </header>
 
