@@ -1,13 +1,20 @@
 import { useState, useEffect } from 'react'
+
+import { FaLinkedin, FaGithub, FaGlobe, FaPrint, FaSun, FaMoon, FaNoteSticky, FaBookOpen, FaSquareXTwitter, FaInstagram, FaTelegram, FaPhone, FaWhatsapp, FaEnvelope, FaListUl, FaBuilding } from 'react-icons/fa6'
+
 import TimelineCompany from './components/TimelineCompany'
+import TimelineChronological from './components/TimelineChronological'
+
 import InfoItem from './components/InfoItem'
-import { FaLinkedin, FaGithub, FaGlobe, FaPrint, FaSun, FaMoon, FaNoteSticky, FaBookOpen, FaSquareXTwitter, FaInstagram, FaTelegram, FaPhone, FaWhatsapp, FaEnvelope } from 'react-icons/fa6'
 import LinkItem from './components/LinkItem'
 import SkillBadge from './components/SkillBadge'
+
+import { companies, positions } from './data'
 
 export default function Resume() {
   const [darkMode, setDarkMode] = useState(true)
   const [shortVersion, setShortVersion] = useState(false)
+  const [timelineView, setTimelineView] = useState('company')
 
   useEffect(() => {
     // Check system preference on load
@@ -53,7 +60,7 @@ export default function Resume() {
         <section id="about" className="col-span-1 lg:col-span-5 text-sm lg:text-lg lg:leading-relaxed" style={{direction: "ltr"}}>
           <h3 className="text-lg lg:text-3xl text-teal-500 mb-3">About Me</h3>
 
-          Passionate about delivering user-focused solutions in fast-paced environments, whatever the challenges and technologies may be.
+          Passionate about delivering user-focused solutions in fast-paced environments, whatever the challenges and technologies may be, with 8 years of experience in web development, DevOps and infrastructure.
           <p className="mt-2">
             Innovative Full-Stack Web Developer and DevOps Engineer. Expertise in microservices architecture,
             cloud infrastructure, container orchestration, CI/CD pipelines, and developing complex systems
@@ -224,192 +231,27 @@ export default function Resume() {
           <h3 className="text-lg lg:text-3xl text-teal-500 mb-3 lg:mb-8">Work Experience</h3>
 
           {/* Timeline Items */}
-          <div className="space-y-5 lg:space-y-12">
-            <TimelineCompany
-              company="RoboEpics"
-              companyUrl="https://roboepics.com"
-              location="Tehran, Iran"
-              positions={[
-                {
-                  startDate: "2022-10",
-                  title: "Software Engineer",
-                  employmentType: "Full-time, On-site",
-                  project: "Xerac",
-                  projectUrl: "https://xerac.ir",
-                  description: "Xerac started as a simple website for Iranian users to talk to ChatGPT, but the vision expands to a full-featured platform for users to have many types of interactions with different large language models and custom-made chatbots.\n\nOur small team of three, developed Xerac in less than a week and quickly gained thousands of users because of its simple UX and ease of access.\n\nInitially, it was developed in Express.js and Next.js but was fully rewritten all in Next.js by me, to benefit from Next.js Streaming Server Rendering and the Vercel AI SDK.",
-                  summary: "Developed Xerac, a platform for LLM interactions. Rewritten the entire application from Express.js/Next.js to pure Next.js, implementing Streaming Server Rendering and Vercel AI SDK.",
-                  skills: [
-                    { name: "Next.js" },
-                    { name: "Tailwind CSS", formattedName: "tailwindcss" },
-                    { name: "Express.js", formattedName: "express" },
-                    { name: "FastAPI" },
-                    { name: "MongoDB" },
-                    { name: "LangChain" },
-                    { name: "Kubernetes" }
-                  ]
-                },
-                {
-                  startDate: "2021-03",
-                  endDate: "2021-08",
-                  title: "Back End Developer",
-                  employmentType: "Full-time, On-site",
-                  project: "Phoenix",
-                  projectUrl: "https://phoenix.roboepics.com",
-                  description: "Phoenix is a complete MLOps platform: From experiments to production, bring teams together in one application. Ship ML models faster, deploy to any cloud, and drive business results.\n\nAs part of a three-member team, I helped develop a serverless GPU marketplace for Data Scientists to train models on the cloud as easy as running a single command.\n\nData centers, universities, companies and even personal desktop GPUs could join the marketplace only by running a lightweight binary on their machine. Data scientists who needed large GPUs to train their models could submit their code and data via our CLI. Phoenix would Dockerize the code, run on the specified GPU(s), send back any results or exported files back to the user and only bill for the time their code was running. This pay-as-you-go system made it very cost-efficient for data scientists who didn't have access to powerful GPUs.\n\nWe also integrated Phoenix with Google Colab, in order to eliminate any migration steps for data scientists who perform experiments on Colab before going for the final training.\n\nThe backend, GPU agent and CLI were all implemented in Golang and the frontend was developed in React.js/Next.js.",
-                  summary: "Developed a serverless GPU marketplace for Data Scientists. Implemented Dockerization and pay-as-you-go system for ML model training.",
-                  skills: [
-                    { name: "Go" },
-                    { name: "Docker" },
-                    { name: "Next.js" }
-                  ]
-                },
-                {
-                  startDate: "2020-01",
-                  title: "Software Engineer",
-                  employmentType: "Full-time, On-site",
-                  project: "RoboEpics",
-                  projectUrl: "https://roboepics.com",
-                  description: "RoboEpics is an AI and Data Science competitions hosting and outsourcing platform.\n\nMy team and I developed a comprehensive platform to host many types of data science competitions for companies and classes for professors.\n\nOur designed architecture consisted of several technologies, such as Gitlab for storing competition participants' codes, RabbitMQ for queuing and distributing runs and evaluations, MinIO for user-uploaded file storage, FusionAuth for authentication, Sentry for monitoring and Kubernetes for orchestrating all the services.\n\nWe also used Gimulator and it's Kubernetes controller to run and evaluate user codes and answers.\n\nThe primary backend and a few microservices were developed in Django and the frontend was developed in Next.js.",
-                  summary: "Developed a comprehensive AI and Data Science competitions hosting platform. Implemented architecture using Gitlab, RabbitMQ, MinIO, FusionAuth, Sentry, and Kubernetes. Built backend in Django and frontend in Next.js.",
-                  skills: [
-                    { name: "Django" },
-                    { name: "PostgreSQL" },
-                    { name: "Next.js" },
-                    { name: "RabbitMQ" },
-                    { name: "Gitlab" },
-                    { name: "Kubernetes" },
-                    { name: "Go" },
-                    { name: "MinIO" },
-                    { name: "Sentry" }
-                  ]
-                },
-              ]}
+          {timelineView === 'company' ? (
+            <div className="space-y-5 lg:space-y-12">
+              {companies.map(company => (
+                <TimelineCompany
+                  key={company.name}
+                  company={company.name}
+                  companyUrl={company.url}
+                  location={company.location}
+                  positions={positions.filter(position => position.company === company.name)}
+                  shortVersion={shortVersion}
+                  darkMode={darkMode}
+                />
+              ))}
+            </div>
+          ) : (
+            <TimelineChronological
+              positions={positions}
               shortVersion={shortVersion}
               darkMode={darkMode}
             />
-
-            <TimelineCompany
-              company="AlaanMed"
-              companyUrl="https://alaanmed.com"
-              location="Dubai, UAE"
-              positions={[
-                {
-                  startDate: "2023-12",
-                  endDate: "2024-05",
-                  title: "Software Engineer",
-                  employmentType: "Contract, Remote",
-                  project: "Alaan Med",
-                  projectUrl: "https://alaanmed.com",
-                  description: "Alaan Med is a review platform designed to empower patients, mitigate risks in medical tourism, and provide doctors with a global stage to excel.\n\nAs part of a three-member technical team, I developed the backend and infrastructure, implementing RESTful API with Express.js, database architecture on MongoDB, search system on Elasticsearch and a scalable infrastructure on Docker and Kubernetes to host all these services reliably and performantly.\n\nTo streamline development workflows and ensure consistent deployments, I implemented GitLab CI/CD pipelines across all services, automating builds, testing, and deployments.\n\nI also engaged in and maintained the frontend development of the project, implemented in React/Next.js.",
-                  summary: "Developed backend and infrastructure for a medical review platform. Implemented RESTful API with Express.js, MongoDB, Elasticsearch, and Kubernetes. Set up GitLab CI/CD pipelines and contributed to Next.js frontend.",
-                  skills: [
-                    { name: "Express.js", formattedName: "express" },
-                    { name: "MongoDB" },
-                    { name: "Elasticsearch" },
-                    { name: "Kubernetes" }
-                  ]
-                }
-              ]}
-              shortVersion={shortVersion}
-              darkMode={darkMode}
-            />
-
-            <TimelineCompany
-              company="arades GmbH"
-              companyUrl="https://arades.de"
-              location="Offenbach, Germany"
-              positions={[
-                {
-                  startDate: "2023-03",
-                  endDate: "2023-10",
-                  title: "Technical Consultant",
-                  employmentType: "Part-time, Remote",
-                  description: "Provided technical consulting for AKS and Container Apps on Azure infrastructure.",
-                  skills: [
-                    { name: "Kubernetes" },
-                    { name: "Azure" }
-                  ]
-                },
-                {
-                  startDate: "2021-10",
-                  endDate: "2022-08",
-                  title: "Back End Developer",
-                  employmentType: "Part-time, Remote",
-                  description: "arades GmbH is a software solutions and IT-Consulting for Microsoft Dynamics 365 & Office 365 products company.\n\nI contributed in two of their products, both on the backend side implemented with Express.js and frontend side implemented with Vue.js.\n\nI also migrated all of their infrastructure from bare-metal deployment on Azure Linux VMs, to Azure Kubernetes Service (AKS), Azure Container Apps and Azure Database for PostgreSQL Flexible Server, and updated all of their CI/CD pipelines to work with the new infrastructure.",
-                  summary: "Migrated infrastructure to Azure Kubernetes Service, Container Apps, and PostgreSQL. Developed backend with Express.js and frontend with Vue.js.",
-                  skills: [
-                    { name: "Express.js", formattedName: "express" },
-                    { name: "PostgreSQL" },
-                    { name: "Redis" },
-                    { name: "Vue.js" },
-                    { name: "Kubernetes" },
-                    { name: "Azure" }
-                  ]
-                }
-              ]}
-              shortVersion={shortVersion}
-              darkMode={darkMode}
-            />
-
-            <TimelineCompany
-              company="Atieh Roshan Consulting"
-              companyUrl="https://www.atiehroshan.com/en/"
-              location="Tehran, Iran"
-              positions={[
-                {
-                  startDate: "2019-04",
-                  endDate: "2019-09",
-                  title: "Full-Stack Web Developer",
-                  employmentType: "Freelance, Remote",
-                  project: "Atieh Roshan Survey",
-                  description: "Atieh Roshan Consulting group is a human resource management strategic consulting company, established in 2002.\n\nThe project was a web interface to ease the process of filling large human resource questionnaires by companies in business relation with Atieh Roshan.\n\nI developed the backend with Django and frontend with vanilla JavaScript and CSS.",
-                  summary: "Developed a web interface for streamlining human resource questionnaires. Built backend with Django and frontend with vanilla JavaScript and CSS.",
-                  skills: [
-                    { name: "Django" },
-                    { name: "Python" },
-                    { name: "PostgreSQL" },
-                    { name: "HTML" },
-                    { name: "CSS" },
-                    { name: "JavaScript" }
-                  ]
-                }
-              ]}
-              shortVersion={shortVersion}
-              darkMode={darkMode}
-            />
-
-            <TimelineCompany
-              company="Shahid Beheshti University"
-              companyUrl="https://en.sbu.ac.ir"
-              location="Tehran, Iran"
-              positions={[
-                {
-                  startDate: "2019-02",
-                  endDate: "2019-06",
-                  title: "Teacher Assistant - Advanced Programming",
-                  description: "Served as a teaching assistant for the Advanced Programming course.",
-                  skills: [
-                    { name: "Java", formattedName: "openjdk" },
-                    { name: "Object Oriented Programming (OOP)", formattedName: "oop" },
-                    { name: "Desktop Application Development (Swing)", formattedName: "swing" },
-                    { name: "Socket Programming (TCP)", formattedName: "tcp" },
-                  ]
-                },
-                {
-                  startDate: "2018-09",
-                  endDate: "2019-01",
-                  title: "Teacher Assistant - Basic Programming",
-                  description: "Served as a teaching assistant for the Basic Programming course.",
-                  skills: [
-                    { name: "C" },
-                    { name: "Algorithms" }
-                  ]
-                }
-              ]}
-              shortVersion={shortVersion}
-              darkMode={darkMode}
-            />
-          </div>
+          )}
         </section>
       </main>
 
@@ -437,9 +279,13 @@ export default function Resume() {
       {/* Theme Toggle Button */}
       <button
         onClick={() => setDarkMode(!darkMode)}
-        className="fixed bottom-4 right-4 z-10 p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg print:hidden"
+        className="fixed bottom-4 right-4 z-10 p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg print:hidden group/theme"
       >
         {darkMode ? <FaSun /> : <FaMoon />}
+        <span
+          className="absolute right-full mr-2 top-1/2 -translate-y-1/2 px-2 py-1 text-sm text-white bg-gray-800 rounded opacity-0 invisible group-hover/theme:visible group-hover/theme:opacity-100 transition-all duration-200 whitespace-nowrap">
+          {darkMode ? 'Show light mode' : 'Show dark mode'}
+        </span>
       </button>
 
       {/* Summary Toggle Button */}
@@ -454,8 +300,20 @@ export default function Resume() {
         </span>
       </button>
 
+      {/* Timeline View Toggle Button */}
+      <button
+        onClick={() => setTimelineView(timelineView === 'company' ? 'chronological' : 'company')}
+        className="fixed bottom-28 right-4 z-10 p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg print:hidden group/view"
+      >
+        {timelineView === 'company' ? <FaListUl /> : <FaBuilding />}
+        <span
+          className="absolute right-full mr-2 top-1/2 -translate-y-1/2 px-2 py-1 text-sm text-white bg-gray-800 rounded opacity-0 invisible group-hover/view:visible group-hover/view:opacity-100 transition-all duration-200 whitespace-nowrap">
+          {timelineView === 'company' ? 'Show chronological view' : 'Show company view'}
+        </span>
+      </button>
+
       {/* Print Button with Dropdown */}
-      <div className="fixed bottom-28 right-4 z-10 print:hidden group">
+      <div className="fixed bottom-40 right-4 z-10 print:hidden group">
         <button
           onClick={() => {
             const ShortVersionCopy = shortVersion

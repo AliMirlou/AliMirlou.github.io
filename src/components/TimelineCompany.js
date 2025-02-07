@@ -1,30 +1,6 @@
 import SkillBadge from './SkillBadge'
-
-const formatDate = (date) => {
-  if (!date) return 'Present'
-  const [year, month] = date.split('-')
-  const monthNames = [
-    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-  ]
-  return `${monthNames[parseInt(month) - 1]} ${year}`
-}
-
-const calculateMonths = (startDate, endDate) => {
-  const start = new Date(startDate)
-  const end = endDate ? new Date(endDate) : new Date()
-  const months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth())
-  const totalMonths = months + 1
-
-  if (totalMonths <= 11) {
-    return `${totalMonths} ${totalMonths === 1 ? 'mo' : 'mos'}`
-  }
-
-  const years = Math.floor(totalMonths / 12)
-  const remainingMonths = totalMonths % 12
-
-  return `${years} ${years === 1 ? 'yr' : 'yrs'}${remainingMonths ? ` ${remainingMonths} ${remainingMonths === 1 ? 'mo' : 'mos'}` : ''}`
-}
+import { formatDate, calculateMonths } from '../utils/date'
+import { highlightText } from '../utils/textHighlight'
 
 export default function TimelineCompany({
   company,
@@ -35,7 +11,7 @@ export default function TimelineCompany({
   darkMode = false
 }) {
   return (
-    <div className={`relative pl-6 print:pt-8 before:absolute before:left-0 before:top-0 print:before:top-8 before:w-[1px] before:h-full before:bg-gray-200 dark:before:bg-gray-700 ${shortVersion ? 'print:break-inside-avoid' : ''} timeline-company`}>
+    <div className={`relative pl-6 print:pt-8 before:absolute before:left-0 before:top-0 print:before:top-8 before:w-[1px] before:h-full before:bg-gray-200 dark:before:bg-gray-700 ${shortVersion ? 'print:break-inside-avoid' : ''} timeline`}>
       <div className="absolute left-[-8px] print:top-8 top-0 w-4 h-4 bg-teal-500 dark:bg-teal-600 rounded-full" />
       <h3 className="text-lg lg:text-xl font-medium dark:text-gray-200 mb-3 lg:mb-4">
         {companyUrl ? (
@@ -95,7 +71,9 @@ export default function TimelineCompany({
             </div>
 
             <p className="text-gray-600 dark:text-gray-400 mb-2 lg:mb-4 lg:mt-2 text-sm lg:text-base whitespace-pre-wrap">
-              {shortVersion && position.summary ? position.summary : position.description}
+              {shortVersion && position.summary ? 
+                highlightText(position.summary) : 
+                position.description}
             </p>
 
             {/* Skills */}
