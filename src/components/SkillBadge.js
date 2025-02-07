@@ -24,6 +24,7 @@ const urlMap = {
   'react': 'https://react.dev/',
   'redis': 'https://redis.io/',
   'sentry': 'https://sentry.io',
+  'stripe': 'https://stripe.com/',
   'swing': 'https://docs.oracle.com/javase/8/docs/technotes/guides/swing/',
   'tailwindcss': 'https://tailwindcss.com/',
   'tcp': 'https://www.ietf.org/rfc/rfc793.txt',
@@ -37,13 +38,17 @@ export default function SkillBadge({ name, formattedName, darkMode = false }) {
   }
 
   const url = urlMap[formattedName] || '#';
+  
+  // Add caching parameters to the shields.io URL
+  const shieldsUrl = `https://img.shields.io/badge/${name}-${darkMode ? '000' : '6a7282'}?logo=${formattedName}&cacheSeconds=86400`;
 
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
       <img
-        src={`https://img.shields.io/badge/${name}-${darkMode ? '000' : '6a7282'}?logo=${formattedName}`}
+        src={shieldsUrl}
         alt={`${name} badge`}
         className="h-4 hover:opacity-80 transition-[opacity,transform] object-contain hover:scale-110"
+        loading="lazy"
       />
     </a>
   );
