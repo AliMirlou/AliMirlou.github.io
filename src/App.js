@@ -60,11 +60,13 @@ export default function Resume() {
         <section id="about" className="col-span-1 lg:col-span-5 text-sm lg:text-lg lg:leading-relaxed" style={{direction: "ltr"}}>
           <h3 className="text-lg lg:text-3xl text-teal-500 mb-3">About Me</h3>
 
-          Passionate about delivering user-focused solutions in fast-paced environments, whatever the challenges and technologies may be, with 8 years of experience in web development, DevOps and infrastructure.
+          Ambitious and collaborative team player focused on delivering user-focused solutions in fast-paced environments,
+          whatever the challenges and technologies may be, with 8 years of experience in web development, DevOps and infrastructure.
           <p className="mt-2">
-            Innovative Full-Stack Web Developer and DevOps Engineer. Expertise in microservices architecture,
-            cloud infrastructure, container orchestration, CI/CD pipelines, and developing complex systems
-            using technologies like Next.js, Django, Kubernetes, and emerging AI technologies.
+            Innovative Full-Stack Web Developer with strong problem-solving abilities and effective communication skills.
+            Expertise in microservices architecture, cloud infrastructure, container orchestration, CI/CD pipelines,
+            and developing complex systems using technologies like Next.js, Django, Kubernetes, and emerging AI technologies.
+            Demonstrated leadership in mentoring junior developers and driving technical decisions through analytical thinking and adaptability.
           </p>
         </section>
 
