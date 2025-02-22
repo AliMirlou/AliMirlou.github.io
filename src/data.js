@@ -71,12 +71,12 @@ Key features we worked on:
 - Automated containerization of ML training code
 - Pay-as-you-go billing system based on GPU usage time
 - Secure file transfer for code, data, and results
-- CLI tool for job submission and management
+- CLI tool for workload submission and management
 
 We also integrated Phoenix with Google Colab, in order to eliminate any migration steps for data scientists who perform experiments on Colab before going for the final training.
 
 The backend services, GPU agent, and CLI were implemented in Golang, while the frontend utilized React.js/Next.js.`,
-    summary: "Developed a **serverless GPU marketplace** with **pay-as-you-go billing**. Implemented automated **code Dockerization**, secure file transfer, and CLI tools for job management. Integrated with **Google Colab** for seamless migration. Built backend in **Go**.",
+    summary: "Developed a **serverless GPU marketplace** with **pay-as-you-go billing** system based on GPU usage time. Implemented automated **code Dockerization**, secure file transfer, and CLI tools for workload management. Integrated with **Google Colab** for seamless migration. Built backend services, GPU agent, and CLI in **Go**.",
     skills: [
       { name: "Go" },
       { name: "Docker" },
