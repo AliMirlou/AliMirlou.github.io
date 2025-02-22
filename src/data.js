@@ -102,10 +102,10 @@ As the technical lead of a 5-person team, I architected and developed the platfo
 - Sentry for error tracking and performance monitoring
 - Kubernetes for container orchestration and scaling
 
-The platform automated the entire competition workflow, from code submission to evaluation. We implemented Gimulator and its Kubernetes controller to handle code execution and evaluation in isolated environments.
+The platform automated the entire competition workflow, from code submission to evaluation. We implemented and open-sourced [Gimulator](https://github.com/Gimulator/Gimulator), a pub-sub real-time message broker using **gRPC** as a communication interface for AI agents, and [Hub](https://github.com/Gimulator/hub), a **Kubernetes controller** to orchestrate code execution and evaluation in isolated environments.
 
 The backend was built with Django REST framework for robust API development, while the frontend utilized Next.js for a responsive user experience.`,
-    summary: "Led a team of 5, developing an **AI and Data Science competitions** platform. Architected infrastructure integrating **Gitlab**, **RabbitMQ**, **MinIO**, **FusionAuth**, and **Kubernetes**. Implemented automated competition workflow with isolated code execution using **Gimulator**. Built backend with **Django REST** and frontend with **Next.js**.",
+    summary: "Led a team of 5, developing an **AI and Data Science competitions** platform. Architected and developed core infrastructure integrating **Gitlab**, **RabbitMQ**, **MinIO**, **FusionAuth**, and **Kubernetes**. Open-sourced [Gimulator](https://github.com/Gimulator/Gimulator) (pub-sub message broker) and [Hub](https://github.com/Gimulator/hub) (Kubernetes controller) for isolated code execution. Built backend with **Django REST** and frontend with **Next.js**.",
     skills: [
       { name: "Django" },
       { name: "PostgreSQL" },
@@ -113,6 +113,7 @@ The backend was built with Django REST framework for robust API development, whi
       { name: "RabbitMQ" },
       { name: "Gitlab" },
       { name: "Kubernetes" },
+      { name: "gRPC" },
       { name: "Go" },
       { name: "MinIO" },
       { name: "Sentry" }
