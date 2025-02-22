@@ -71,9 +71,7 @@ export default function TimelineCompany({
             </div>
 
             <p className="text-gray-600 dark:text-gray-400 mb-2 lg:mb-4 lg:mt-2 text-sm lg:text-base whitespace-pre-wrap">
-              {shortVersion && position.summary ? 
-                highlightText(position.summary) : 
-                position.description}
+              {highlightText(shortVersion && position.summary ? position.summary : position.description)}
             </p>
 
             {/* Skills */}
