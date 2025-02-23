@@ -41,7 +41,7 @@ export default function SkillBadge({ name, formattedName, darkMode = false }) {
   const url = urlMap[formattedName] || '#';
   
   // Add caching parameters to the shields.io URL
-  const shieldsUrl = `https://img.shields.io/badge/${name}-${darkMode ? '000' : '6a7282'}?logo=${formattedName}&cacheSeconds=86400`;
+  const shieldsUrl = `https://img.shields.io/badge/${name}-${darkMode ? '000' : '5a6272'}?logo=${formattedName}&cacheSeconds=86400`;
 
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
