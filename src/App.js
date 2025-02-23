@@ -38,7 +38,17 @@ export default function Resume() {
       <header className="p-3 md:p-7 bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-emerald-500 dark:to-emerald-600 text-white">
         <div className="max-w-7xl flex justify-between mx-auto">
           <div className="flex flex-col items-start gap-2 justify-between">
-            <p className="text-sm">Curriculum Vitae</p>
+            <div className="flex flex-col">
+              <p className="text-sm">Curriculum Vitae</p>
+              <a 
+                href="https://AliMirlou.github.io"
+                className="text-xs opacity-75 hover:opacity-100 transition-opacity"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                AliMirlou.github.io
+              </a>
+            </div>
             <div>
               <h1 className="text-3xl lg:text-5xl">Ali Mirlou</h1>
               <h2 className="text-xl lg:text-2xl font-light">Co-Founder and Software Engineer @ RoboEpics</h2>
