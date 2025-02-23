@@ -40,8 +40,8 @@ export const positions = [
 
 Our small team of three, developed Xerac in less than a week and successfully scaled it to **5000+ monthly users** with no marketing because of its simple UX, practical features and performance.
 
-Initially, it was developed in **Express.js** and **Next.js** but was fully rewritten and open-sourced all in **Next.js** by me, to benefit from **Next.js Streaming Server Rendering** and the **Vercel AI SDK**.`,
-    summary: "Led a three-person team to develop **Xerac**, an LLM platform, scaling to **5000+ monthly users** with no marketing and only with simple UX, practical features and performance. Achieved rapid development and deployment in under a week. Rewritten and **open-sourced** from Express.js/Next.js to pure **Next.js** to leverage **Streaming Server Rendering** and **Vercel AI SDK**.",
+Initially, it was developed in **Express.js** and **Next.js** but was fully rewritten and [open-sourced](https://github.com/XeracAI/Xerac) all in **Next.js** by me, to benefit from **Next.js Streaming Server Rendering** and the **Vercel AI SDK**.`,
+    summary: "Led a three-person team to develop **Xerac**, an LLM platform, scaling to **5000+ monthly users** with no marketing and only with simple UX, practical features and performance. Achieved rapid development and deployment in under a week. Rewritten and [open-sourced](https://github.com/XeracAI/Xerac) from Express.js/Next.js to pure **Next.js** to leverage **Streaming Server Rendering** and **Vercel AI SDK**.",
     skills: [
       { name: "Next.js" },
       { name: "Tailwind CSS", formattedName: "tailwindcss" },
@@ -170,7 +170,7 @@ Additionally, I contributed to the frontend development in **React.js**/**Next.j
     title: "Back End Developer",
     employmentType: "Part-time, Remote",
     project: "Devonso",
-    projectUrl: "http://devonso.com/",
+    projectUrl: "https://devonso.com/",
     description: `**arades GmbH** develops software solutions and provides IT-Consulting for **Microsoft Dynamics 365** & **Office 365** products.
 
 As a backend developer, I worked on two of their products, implementing **REST APIs** with **Express.js**, and contributing to the **Vue.js** frontend when needed. The products focused on extending **Microsoft Dynamics 365** functionality with custom features.
