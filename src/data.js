@@ -80,7 +80,8 @@ The backend services, GPU agent, and CLI were implemented in **Go**, while the f
     skills: [
       { name: "Go" },
       { name: "Docker" },
-      { name: "Next.js" }
+      { name: "Next.js" },
+      { name: "Google Colab", formattedName: "googlecolab" }
     ]
   },
   {
@@ -112,6 +113,7 @@ The backend was built with **Django REST framework** for robust API development,
       { name: "Next.js" },
       { name: "RabbitMQ" },
       { name: "Gitlab" },
+      { name: "Google Colab", formattedName: "googlecolab" },
       { name: "Kubernetes" },
       { name: "gRPC" },
       { name: "Go" },

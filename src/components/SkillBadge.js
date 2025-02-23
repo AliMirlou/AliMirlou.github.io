@@ -11,6 +11,7 @@ const urlMap = {
   'fastapi': 'https://fastapi.tiangolo.com/',
   'gitlab': 'https://about.gitlab.com',
   'go': 'https://go.dev',
+  'googlecolab': 'https://colab.research.google.com/',
   'javascript': 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
   'kubernetes': 'https://kubernetes.io',
   'langchain': 'https://www.langchain.com',
