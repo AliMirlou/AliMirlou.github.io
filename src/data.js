@@ -38,10 +38,10 @@ export const positions = [
     projectUrl: "https://xerac.ir",
     description: `**Xerac** started as a simple website for Iranian users to talk to **ChatGPT**, but the vision expands to a full-featured platform for users to have many types of interactions with different **large language models** and custom-made chatbots.
 
-Our small team of three, developed Xerac in less than a week and successfully scaled it to **5000+ monthly users** with no marketing because of its simple UX, practical features and performance.
+Our small team of three, developed Xerac in less than a week and successfully scaled it to **5000+ monthly users** with no marketing because of its simple UX, practical features and performance. I also developed **40+ private or internal assistants** for companies using **FastAPI** and utilizing different frameworks, RAG approaches, embedding models, vector stores and LLMs based on needs. These assistants were deployed on **Kubernetes** and connected to Xerac for company employees to interact with as a single comprehensive hub.
 
-Initially, it was developed in **Express.js** and **Next.js** but was fully rewritten and [open-sourced](https://github.com/XeracAI/Xerac) all in **Next.js** by me, to benefit from **Next.js Streaming Server Rendering** and the **Vercel AI SDK**.`,
-    summary: "Led a three-person team to develop **Xerac**, an LLM platform, scaling to **5000+ monthly users** with no marketing and only with simple UX, practical features and performance. Achieved rapid development and deployment in under a week. Rewritten and [open-sourced](https://github.com/XeracAI/Xerac) from Express.js/Next.js to pure **Next.js** to leverage **Streaming Server Rendering** and **Vercel AI SDK**.",
+Initially, it was developed in **Express.js** and **Next.js** but was fully rewritten in **Next.js** by me and [open-sourced](https://github.com/XeracAI/Xerac), to benefit from **Next.js Streaming Server Rendering** and the **Vercel AI SDK**.`,
+    summary: "Led a three-person team to develop **Xerac**, an LLM platform, scaling to **5000+ monthly users** with no marketing and only with simple UX, practical features and performance. Developed **40+ private assistants** for companies using **FastAPI**, various RAG approaches and LLMs, deployed on **Kubernetes**. Rewritten and [open-sourced](https://github.com/XeracAI/Xerac) from Express.js/Next.js to pure **Next.js** to leverage **Streaming Server Rendering** and **Vercel AI SDK**.",
     skills: [
       { name: "Next.js" },
       { name: "Tailwind CSS", formattedName: "tailwindcss" },
