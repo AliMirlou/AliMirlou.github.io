@@ -1,0 +1,9 @@
+.timeline:first-of-type {
+  padding-top: 0 !important;
+}
+.timeline:first-of-type::before {
+  top: 0 !important;
+}
+.timeline:first-of-type > div {
+  top: 0 !important;
+}

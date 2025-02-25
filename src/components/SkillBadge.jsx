@@ -30,18 +30,18 @@ const urlMap = {
   'tailwindcss': 'https://tailwindcss.com/',
   'tcp': 'https://www.ietf.org/rfc/rfc793.txt',
   'vue.js': 'https://vuejs.org'
-};
+}
 
 export default function SkillBadge({ name, formattedName, darkMode = false }) {
   if (!formattedName) {
     // Convert spaces to hyphens and make lowercase for URL compatibility
-    formattedName = name.toLowerCase().replace(/\s+/g, '-');
+    formattedName = name.toLowerCase().replace(/\s+/g, '-')
   }
 
-  const url = urlMap[formattedName] || '#';
+  const url = urlMap[formattedName] || '#'
   
   // Add caching parameters to the shields.io URL
-  const shieldsUrl = `https://img.shields.io/badge/${name}-${darkMode ? '000' : '5a6272'}?logo=${formattedName}&cacheSeconds=86400`;
+  const shieldsUrl = `https://img.shields.io/badge/${name}-${darkMode ? '000' : '5a6272'}?logo=${formattedName}&cacheSeconds=86400`
 
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
@@ -52,5 +52,5 @@ export default function SkillBadge({ name, formattedName, darkMode = false }) {
         loading="lazy"
       />
     </a>
-  );
+  )
 }

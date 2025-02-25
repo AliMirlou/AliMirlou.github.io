@@ -1,10 +1,10 @@
 export function highlightText(text) {
   // First split by markdown links [text](url)
-  const parts = text.split(/(\[.*?\]\(.*?\))/)
+  const parts = text.split(/(\[.*?]\(.*?\))/)
   
   return parts.map((part, index) => {
     // Check if this part is a markdown link
-    const linkMatch = part.match(/\[(.*?)\]\((.*?)\)/)
+    const linkMatch = part.match(/\[(.*?)]\((.*?)\)/)
     if (linkMatch) {
       const [, linkText, url] = linkMatch
       return (

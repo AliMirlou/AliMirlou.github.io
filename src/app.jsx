@@ -1,17 +1,19 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'preact/hooks'
+
+import './app.css'
 
 import { FaLinkedin, FaGithub, FaGlobe, FaPrint, FaSun, FaMoon, FaNoteSticky, FaBookOpen, FaSquareXTwitter, FaInstagram, FaTelegram, FaPhone, FaWhatsapp, FaEnvelope, FaListUl, FaBuilding } from 'react-icons/fa6'
 
-import TimelineCompany from './components/TimelineCompany'
-import TimelineChronological from './components/TimelineChronological'
+import TimelineChronological from './components/TimelineChronological.jsx'
+import TimelineCompany from './components/TimelineCompany.jsx'
 
 import InfoItem from './components/InfoItem'
 import LinkItem from './components/LinkItem'
 import SkillBadge from './components/SkillBadge'
 
-import { companies, positions } from './data'
+import { companies, positions } from './data.js'
 
-export default function Resume() {
+export function App() {
   const [darkMode, setDarkMode] = useState(true)
   const [shortVersion, setShortVersion] = useState(false)
   const [timelineView, setTimelineView] = useState('company')
@@ -40,7 +42,7 @@ export default function Resume() {
           <div className="flex flex-col items-start gap-2 justify-between">
             <div className="flex flex-col">
               <p className="text-sm">Curriculum Vitae</p>
-              <a 
+              <a
                 href="https://AliMirlou.github.io"
                 className="text-xs opacity-75 hover:opacity-100 transition-opacity"
                 target="_blank"
@@ -291,7 +293,7 @@ export default function Resume() {
       {/* Theme Toggle Button */}
       <button
         onClick={() => setDarkMode(!darkMode)}
-        className="fixed bottom-4 right-4 z-10 p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg print:hidden group/theme"
+        className="fixed bottom-4 right-4 z-10 p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg print:hidden group/theme cursor-pointer"
       >
         {darkMode ? <FaSun /> : <FaMoon />}
         <span
@@ -303,7 +305,7 @@ export default function Resume() {
       {/* Summary Toggle Button */}
       <button
         onClick={() => setShortVersion(!shortVersion)}
-        className="fixed bottom-16 right-4 z-10 p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg print:hidden group/sum"
+        className="fixed bottom-16 right-4 z-10 p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg print:hidden group/sum cursor-pointer"
       >
         {shortVersion ? <FaBookOpen /> : <FaNoteSticky />}
         <span
@@ -315,7 +317,7 @@ export default function Resume() {
       {/* Timeline View Toggle Button */}
       <button
         onClick={() => setTimelineView(timelineView === 'company' ? 'chronological' : 'company')}
-        className="fixed bottom-28 right-4 z-10 p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg print:hidden group/view"
+        className="fixed bottom-28 right-4 z-10 p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg print:hidden group/view cursor-pointer"
       >
         {timelineView === 'company' ? <FaListUl /> : <FaBuilding />}
         <span
@@ -334,7 +336,7 @@ export default function Resume() {
             // Reset after printing
             setTimeout(() => setShortVersion(ShortVersionCopy), 500)
           }}
-          className="relative p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg group/btn"
+          className="relative p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg group/btn cursor-pointer"
         >
           <FaPrint />
           <span
@@ -354,7 +356,7 @@ export default function Resume() {
               // Reset after printing
               setTimeout(() => setShortVersion(ShortVersionCopy), 500)
             }}
-            className="relative p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg group/btn1"
+            className="relative p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg group/btn1 cursor-pointer"
           >
             <FaPrint />
             <span

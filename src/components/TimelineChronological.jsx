@@ -12,15 +12,15 @@ export default function TimelineChronological({
   const sortedPositions = [...positions].sort((a, b) => {
     // If neither position has an endDate, sort by startDate
     if (!a.endDate && !b.endDate) {
-      return new Date(b.startDate) - new Date(a.startDate);
+      return new Date(b.startDate) - new Date(a.startDate)
     }
     // If only a has no endDate, it should come first
-    if (!a.endDate) return -1;
+    if (!a.endDate) return -1
     // If only b has no endDate, it should come first
-    if (!b.endDate) return 1;
+    if (!b.endDate) return 1
     // If both have endDates, sort by endDate
-    return new Date(b.endDate) - new Date(a.endDate);
-  });
+    return new Date(b.endDate) - new Date(a.endDate)
+  })
 
   return (
     <div className="space-y-2 lg:space-y-10">
@@ -113,4 +113,4 @@ export default function TimelineChronological({
       })}
     </div>
   )
-} 
+}
