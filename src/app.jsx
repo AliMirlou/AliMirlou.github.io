@@ -58,9 +58,11 @@ export function App() {
           </div>
           <div className="size-24 lg:size-32 rounded-full overflow-hidden border-4 border-white my-auto">
             <img
-              src="/profile.jpg"
+              src="/profile.webp"
               alt="Profile"
               className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
@@ -228,9 +230,11 @@ export function App() {
               <LinkItem
                 href="https://codeforces.com/profile/AliMirlou"
                 icon={<img
-                  src="https://codeforces.org/s/93010/android-icon-192x192.png"
+                  src="https://codeforces.org/s/65485/apple-icon-57x57.png"
                   alt="Codeforces"
                   className="w-5 h-5 flex-shrink-0"
+                  loading="lazy"
+                  decoding="async"
                 />}
                 className="print:hidden"
               >
