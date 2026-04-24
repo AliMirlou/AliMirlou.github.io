@@ -253,7 +253,8 @@ The application was built with **Django** for the backend, utilizing **PostgreSQ
       { name: "Object Oriented Programming (OOP)", formattedName: "oop" },
       { name: "Desktop Application Development (Swing)", formattedName: "swing" },
       { name: "Socket Programming (TCP)", formattedName: "tcp" }
-    ]
+    ],
+    excludeFromShortVersion: true
   },
   {
     company: "Shahid Beheshti University",
@@ -266,6 +267,7 @@ The application was built with **Django** for the backend, utilizing **PostgreSQ
     skills: [
       { name: "C" },
       { name: "Algorithms" }
-    ]
+    ],
+    excludeFromShortVersion: true
   }
 ]

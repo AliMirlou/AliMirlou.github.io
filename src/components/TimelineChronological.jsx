@@ -9,7 +9,7 @@ export default function TimelineChronological({
   darkMode = false
 }) {
   // Sort positions by end date in descending order, handling current positions (no endDate)
-  const sortedPositions = [...positions].sort((a, b) => {
+  const sortedPositions = positions.filter((p) => !(shortVersion && p.excludeFromShortVersion)).toSorted((a, b) => {
     // If neither position has an endDate, sort by startDate
     if (!a.endDate && !b.endDate) {
       return new Date(b.startDate) - new Date(a.startDate)
@@ -29,8 +29,8 @@ export default function TimelineChronological({
         const companyData = companies.find(c => c.name === position.company)
 
         return (
-          <div key={index} className="relative pl-6 print:pt-4 before:absolute before:left-0 before:top-0 print:before:top-4 before:w-[1px] before:h-full print:before:h-[90%] before:bg-gray-200 dark:before:bg-gray-700 print:break-inside-avoid timeline">
-            <div className="absolute left-[-8px] print:top-4 top-0 w-4 h-4 bg-teal-500 dark:bg-teal-600 rounded-full" />
+          <div key={index} className="relative pl-6 print:pt-4 before:absolute before:left-0 before:top-0 print:before:top-4 before:w-px before:h-full print:before:h-[90%] before:bg-gray-200 dark:before:bg-gray-700 print:break-inside-avoid timeline">
+            <div className="absolute -left-2 print:top-4 top-0 w-4 h-4 bg-teal-500 dark:bg-teal-600 rounded-full" />
 
             <div className="relative print:break-inside-avoid">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-1">
