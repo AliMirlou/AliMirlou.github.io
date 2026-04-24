@@ -14,15 +14,17 @@ const urlMap = {
   'gitlab': 'https://about.gitlab.com',
   'go': 'https://go.dev',
   'googlecolab': 'https://colab.research.google.com/',
+  'grpc': 'https://grpc.io/',
+  'html': 'https://developer.mozilla.org/en-US/docs/Web/HTML',
   'javascript': 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
   'kubernetes': 'https://kubernetes.io',
   'langchain': 'https://www.langchain.com',
   'minio': 'https://min.io/',
   'mongodb': 'https://www.mongodb.com',
-  'next.js': 'https://nextjs.org',
+  'nextdotjs': 'https://nextjs.org/',
   'nodedotjs': 'https://nodejs.org/',
   'postgresql': 'https://www.postgresql.org/',
-  'python': 'http://python.org/',
+  'python': 'https://python.org/',
   'oop': 'https://web.archive.org/web/20100717111134/http://history.siam.org/sup/Fox_1960_LISP.pdf#page=91',
   'openjdk': 'https://openjdk.org/',
   'rabbitmq': 'https://www.rabbitmq.com',
@@ -42,19 +44,28 @@ export default function SkillBadge({ name, formattedName, darkMode = false }) {
     formattedName = name.toLowerCase().replace(/\s+/g, '-')
   }
 
-  const url = urlMap[formattedName] || '#'
+  const url = urlMap[formattedName]
 
   // Add caching parameters to the shields.io URL
   const shieldsUrl = `https://img.shields.io/badge/${name}-${darkMode ? '000' : '5a6272'}?logo=${formattedName}&cacheSeconds=31560000`
 
+  const badge = (
+    <img
+      src={shieldsUrl}
+      alt={`${name} badge`}
+      className="h-4 object-contain transition-[opacity,transform] hover:scale-110 hover:opacity-80"
+      loading="lazy"
+      decoding="async"
+    />
+  )
+
+  if (!url) {
+    return badge
+  }
+
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
-      <img
-        src={shieldsUrl}
-        alt={`${name} badge`}
-        className="h-4 hover:opacity-80 transition-[opacity,transform] object-contain hover:scale-110"
-        loading="lazy"
-      />
+      {badge}
     </a>
   )
 }

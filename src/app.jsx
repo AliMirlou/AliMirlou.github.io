@@ -1,15 +1,32 @@
-import { useState, useEffect } from 'preact/hooks'
+import { useEffect, useState } from 'preact/hooks'
 
 import './app.css'
 
-import { FaLinkedin, FaGithub, FaGlobe, FaPrint, FaSun, FaMoon, FaNoteSticky, FaBookOpen, FaSquareXTwitter, FaInstagram, FaTelegram, FaPhone, FaWhatsapp, FaEnvelope, FaListUl, FaBuilding } from 'react-icons/fa6'
+import {
+  FaLinkedin,
+  FaGithub,
+  FaGlobe,
+  FaPrint,
+  FaSun,
+  FaMoon,
+  FaNoteSticky,
+  FaBookOpen,
+  FaSquareXTwitter,
+  FaInstagram,
+  FaTelegram,
+  FaPhone,
+  FaWhatsapp,
+  FaEnvelope,
+  FaListUl,
+  FaBuilding
+} from 'react-icons/fa6'
 
 import TimelineChronological from './components/TimelineChronological.jsx'
 import TimelineCompany from './components/TimelineCompany.jsx'
 
-import InfoItem from './components/InfoItem'
-import LinkItem from './components/LinkItem'
-import SkillBadge from './components/SkillBadge'
+import InfoItem from './components/InfoItem.jsx'
+import LinkItem from './components/LinkItem.jsx'
+import SkillBadge from './components/SkillBadge.jsx'
 
 import { companies, positions } from './data.js'
 
