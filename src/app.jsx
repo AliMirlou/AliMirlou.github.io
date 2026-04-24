@@ -37,7 +37,7 @@ export function App() {
   return (
     <div className="min-h-screen dark:text-gray-200">
       {/* Header */}
-      <header className="p-3 md:p-7 bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-emerald-500 dark:to-emerald-600 text-white" role="banner">
+      <header className="p-3 md:p-7 bg-linear-to-r from-cyan-500 dark:from-cyan-600 to-emerald-500 dark:to-emerald-600 text-white" role="banner">
         <div className="max-w-7xl flex justify-between mx-auto">
           <div className="flex flex-col items-start gap-2 justify-between">
             <div className="flex flex-col">
@@ -91,8 +91,8 @@ export function App() {
           <div className="md:col-span-3 lg:col-span-1 print:break-inside-avoid">
             <h3 className="text-lg lg:text-2xl text-teal-500 mb-3">Skills</h3>
 
-            <div className="grid grid-cols-[repeat(68,minmax(0,1fr))] lg:grid-cols-1 text-xs lg:text-base">
-              <div className="lg:my-2 col-[span_13] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.1px] after:h-full after:bg-gradient-to-b after:from-transparent after:via-emerald-500 after:to-transparent lg:after:hidden">
+            <div className="grid grid-cols-68 lg:grid-cols-1 text-xs lg:text-base">
+              <div className="lg:my-2 col-[span_13] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.1px] after:h-full after:bg-linear-to-b after:from-transparent after:via-emerald-500 after:to-transparent lg:after:hidden">
                 <h4 className="font-medium mb-2">Frontend Development</h4>
                 <div className="flex flex-wrap gap-1 lg:gap-2">
                   <SkillBadge name="Next.js" darkMode={darkMode} />
@@ -102,7 +102,7 @@ export function App() {
                 </div>
               </div>
 
-              <div className="md:pl-1.5 lg:p-0 lg:my-2 col-[span_15] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.5px] after:h-full after:bg-gradient-to-b after:from-transparent after:via-emerald-500 after:to-transparent before:absolute before:top-0 before:left-0 before:w-0.5 before:h-full before:bg-gradient-to-b before:from-transparent before:via-emerald-500 before:to-transparent lg:after:hidden lg:before:hidden">
+              <div className="md:pl-1.5 lg:p-0 lg:my-2 col-[span_15] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.5px] after:h-full after:bg-linear-to-b after:from-transparent after:via-emerald-500 after:to-transparent before:absolute before:top-0 before:left-0 before:w-0.5 before:h-full before:bg-linear-to-b before:from-transparent before:via-emerald-500 before:to-transparent lg:after:hidden lg:before:hidden">
                 <h4 className="font-medium mb-2">Backend Development</h4>
                 <div className="flex flex-wrap gap-1 lg:gap-2">
                   <SkillBadge name="Django" darkMode={darkMode} />
@@ -113,7 +113,7 @@ export function App() {
                 </div>
               </div>
 
-              <div className="md:pl-1.5 lg:p-0 lg:my-2 col-[span_13] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.5px] after:h-full after:bg-gradient-to-b after:from-transparent after:via-emerald-500 after:to-transparent before:absolute before:top-0 before:left-0 before:w-0.5 before:h-full before:bg-gradient-to-b before:from-transparent before:via-emerald-500 before:to-transparent lg:after:hidden lg:before:hidden">
+              <div className="md:pl-1.5 lg:p-0 lg:my-2 col-[span_13] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.5px] after:h-full after:bg-linear-to-b after:from-transparent after:via-emerald-500 after:to-transparent before:absolute before:top-0 before:left-0 before:w-0.5 before:h-full before:bg-linear-to-b before:from-transparent before:via-emerald-500 before:to-transparent lg:after:hidden lg:before:hidden">
                 <h4 className="font-medium mb-2">DevOps & Cloud</h4>
                 <div className="flex flex-wrap gap-1 lg:gap-2">
                   <SkillBadge name="Kubernetes" darkMode={darkMode} />
@@ -123,7 +123,7 @@ export function App() {
                 </div>
               </div>
 
-              <div className="md:pl-1.5 lg:p-0 lg:my-2 col-[span_18] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.5px] after:h-full after:bg-gradient-to-b after:from-transparent after:via-emerald-500 after:to-transparent before:absolute before:top-0 before:left-0 before:w-0.5 before:h-full before:bg-gradient-to-b before:from-transparent before:via-emerald-500 before:to-transparent lg:after:hidden lg:before:hidden">
+              <div className="md:pl-1.5 lg:p-0 lg:my-2 col-[span_18] lg:col-span-1 relative after:absolute after:top-0 after:right-0 after:w-[0.5px] after:h-full after:bg-linear-to-b after:from-transparent after:via-emerald-500 after:to-transparent before:absolute before:top-0 before:left-0 before:w-0.5 before:h-full before:bg-linear-to-b before:from-transparent before:via-emerald-500 before:to-transparent lg:after:hidden lg:before:hidden">
                 <h4 className="font-medium mb-2">Databases & Message Queues</h4>
                 <div className="flex flex-wrap gap-1 lg:gap-2">
                   <SkillBadge name="PostgreSQL" darkMode={darkMode} />
@@ -134,7 +134,7 @@ export function App() {
                 </div>
               </div>
 
-              <div className="md:pl-1.5 lg:p-0 lg:my-2 col-span-9 lg:col-span-1 relative before:absolute before:top-0 before:left-0 before:w-[1px] before:h-full before:bg-gradient-to-b before:from-transparent before:via-emerald-500 before:to-transparent lg:before:hidden">
+              <div className="md:pl-1.5 lg:p-0 lg:my-2 col-span-9 lg:col-span-1 relative before:absolute before:top-0 before:left-0 before:w-px before:h-full before:bg-linear-to-b before:from-transparent before:via-emerald-500 before:to-transparent lg:before:hidden">
                 <h4 className="font-medium mb-2">Other Tools</h4>
                 <div className="flex flex-wrap gap-1 lg:gap-2">
                   <SkillBadge name="Git" darkMode={darkMode} />
@@ -149,11 +149,11 @@ export function App() {
           <div className="space-y-1 lg:space-y-2 col-span-2">
             <h3 className="text-lg lg:text-2xl text-teal-500 mb-3">Information</h3>
             <InfoItem label="Location">Tehran, Iran</InfoItem>
-            <div className="w-32 h-0.5 bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent" />
+            <div className="w-32 h-0.5 bg-linear-to-r from-cyan-500 via-emerald-500 to-transparent" />
             <InfoItem label="Date of birth">November 17, 1996</InfoItem>
-            <div className="w-32 h-0.5 bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent" />
+            <div className="w-32 h-0.5 bg-linear-to-r from-cyan-500 via-emerald-500 to-transparent" />
             <InfoItem label="Languages" className="print:hidden">Persian (Native), English (Professional)</InfoItem>
-            <div className="w-32 h-0.5 bg-gradient-to-r from-cyan-500 via-emerald-500 to-transparent print:hidden" />
+            <div className="w-32 h-0.5 bg-linear-to-r from-cyan-500 via-emerald-500 to-transparent print:hidden" />
             <InfoItem label="Education">
               <div className="space-y-2 text-xs lg:text-base">
                 <p>MSc Data Mining, Shahid Beheshti University (2020-2022)</p>
@@ -233,7 +233,7 @@ export function App() {
                 icon={<img
                   src="https://codeforces.org/s/65485/apple-icon-57x57.png"
                   alt="Codeforces"
-                  className="w-5 h-5 flex-shrink-0"
+                  className="w-5 h-5 shrink-0"
                   loading="lazy"
                   decoding="async"
                 />}
@@ -274,7 +274,7 @@ export function App() {
         </section>
       </main>
 
-      <footer className="bg-gradient-to-r from-emerald-500 dark:from-emerald-600 to-cyan-500 dark:to-cyan-600 py-6 mt-10 break-before-page print:mt-[-72px]">
+      <footer className="bg-linear-to-r from-emerald-500 dark:from-emerald-600 to-cyan-500 dark:to-cyan-600 py-6 mt-10 break-before-page print:-mt-18">
         <div className="max-w-7xl mx-auto px-8">
           <div className="hidden print:block text-center text-white">
             <span className="font-light">View the live version at: </span>

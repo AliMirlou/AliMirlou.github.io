@@ -11,8 +11,8 @@ export default function TimelineCompany({
   darkMode = false
 }) {
   return (
-    <div className={`relative pl-6 print:pt-8 before:absolute before:left-0 before:top-0 print:before:top-8 before:w-[1px] before:h-full before:bg-gray-200 dark:before:bg-gray-700 ${shortVersion ? 'print:break-inside-avoid' : ''} timeline`}>
-      <div className="absolute left-[-8px] print:top-8 top-0 w-4 h-4 bg-teal-500 dark:bg-teal-600 rounded-full" />
+    <div className={`relative pl-6 print:pt-8 before:absolute before:left-0 before:top-0 print:before:top-8 before:w-px before:h-full before:bg-gray-200 dark:before:bg-gray-700 ${shortVersion ? 'print:break-inside-avoid' : ''} timeline`}>
+      <div className="absolute -left-2 print:top-8 top-0 w-4 h-4 bg-teal-500 dark:bg-teal-600 rounded-full" />
       <h3 className="text-lg lg:text-xl font-medium dark:text-gray-200 mb-3 lg:mb-4">
         {companyUrl ? (
           <a
@@ -35,7 +35,7 @@ export default function TimelineCompany({
       <div className="space-y-4 lg:space-y-6">
         {positions.map((position, index) => (
           <div key={index} className="relative print:break-inside-avoid">
-            <div className="absolute left-[-28px] top-2 w-2 h-2 bg-teal-500 dark:bg-teal-600 rounded-full" />
+            <div className="absolute -left-7 top-2 w-2 h-2 bg-teal-500 dark:bg-teal-600 rounded-full" />
 
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-1">
               {/* Date of position */}
