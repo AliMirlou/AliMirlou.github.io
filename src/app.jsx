@@ -23,33 +23,64 @@ import {
 
 import TimelineChronological from './components/TimelineChronological.jsx'
 import TimelineCompany from './components/TimelineCompany.jsx'
+import FloatingActionButton from './components/FloatingActionButton.jsx'
 
 import InfoItem from './components/InfoItem.jsx'
 import LinkItem from './components/LinkItem.jsx'
 import SkillBadge from './components/SkillBadge.jsx'
 
-import { companies, positions } from './data.js'
+import {
+  hasVisiblePositions,
+  chronologicalPositions,
+  positionsByCompany
+} from './utils/positions.js'
+import {
+  applyDarkMode,
+  getInitialDarkMode,
+  persistThemePreference
+} from './utils/theme.js'
 
 export function App() {
-  const [darkMode, setDarkMode] = useState(true)
+  const [darkMode, setDarkMode] = useState(getInitialDarkMode)
   const [shortVersion, setShortVersion] = useState(false)
   const [timelineView, setTimelineView] = useState('company')
+  const visibleCompanyTimelines = positionsByCompany.filter((company) =>
+    hasVisiblePositions(company.positions, shortVersion)
+  )
 
   useEffect(() => {
-    // Check system preference on load
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setDarkMode(true)
-    }
-  }, [])
-
-  useEffect(() => {
-    // Update document class when dark mode changes
-    if (darkMode) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
+    applyDarkMode(darkMode)
+    persistThemePreference(darkMode)
   }, [darkMode])
+
+  const handlePrint = (nextShortVersion) => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    const previousShortVersion = shortVersion
+    let restoreTimerId
+
+    const restoreShortVersion = () => {
+      window.removeEventListener('afterprint', restoreShortVersion)
+
+      if (restoreTimerId) {
+        window.clearTimeout(restoreTimerId)
+      }
+
+      setShortVersion(previousShortVersion)
+    }
+
+    setShortVersion(nextShortVersion)
+
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        window.addEventListener('afterprint', restoreShortVersion, { once: true })
+        restoreTimerId = window.setTimeout(restoreShortVersion, 1000)
+        window.print()
+      })
+    })
+  }
 
   return (
     <div className="min-h-screen dark:text-gray-200">
@@ -87,9 +118,9 @@ export function App() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-8 py-4 lg:py-8 grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-12" style={{direction: "rtl"}}>
+      <main className="max-w-7xl mx-auto grid grid-cols-1 gap-4 px-8 py-4 lg:grid-cols-5 lg:gap-12 lg:py-8" dir="rtl">
         {/* About Me Section */}
-        <section id="about" className="col-span-1 lg:col-span-5 text-sm lg:text-lg lg:leading-relaxed" style={{direction: "ltr"}}>
+        <section id="about" className="col-span-1 text-sm lg:col-span-5 lg:text-lg lg:leading-relaxed" dir="ltr">
           <h3 className="text-lg lg:text-3xl text-teal-500 mb-3">About Me</h3>
 
           Ambitious and collaborative team player focused on delivering user-focused solutions in fast-paced environments,
@@ -103,7 +134,7 @@ export function App() {
         </section>
 
         {/* Information */}
-        <section id="info" className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-1 lg:col-span-2 gap-8 md:gap-4 h-fit" style={{direction: "ltr"}}>
+        <section id="info" className="grid h-fit grid-cols-1 gap-8 md:grid-cols-3 md:gap-4 lg:col-span-2 lg:grid-cols-1" dir="ltr">
           {/* Skills Section */}
           <div className="md:col-span-3 lg:col-span-1 print:break-inside-avoid">
             <h3 className="text-lg lg:text-2xl text-teal-500 mb-3">Skills</h3>
@@ -263,19 +294,19 @@ export function App() {
         </section>
 
         {/* Work Experience */}
-        <section id="work" className="lg:col-span-3" style={{direction: "ltr"}}>
+        <section id="work" className="lg:col-span-3" dir="ltr">
           <h3 className="text-lg lg:text-3xl text-teal-500 mb-3 lg:mb-8">Work Experience</h3>
 
           {/* Timeline Items */}
           {timelineView === 'company' ? (
             <div className="space-y-5 lg:space-y-12">
-              {companies.map(company => (
+              {visibleCompanyTimelines.map((company) => (
                 <TimelineCompany
                   key={company.name}
                   company={company.name}
                   companyUrl={company.url}
                   location={company.location}
-                  positions={positions.filter(position => position.company === company.name)}
+                  positions={company.positions}
                   shortVersion={shortVersion}
                   darkMode={darkMode}
                 />
@@ -283,7 +314,7 @@ export function App() {
             </div>
           ) : (
             <TimelineChronological
-              positions={positions}
+              positions={chronologicalPositions}
               shortVersion={shortVersion}
               darkMode={darkMode}
             />
@@ -304,7 +335,7 @@ export function App() {
           </div>
           <div className="print:hidden text-center text-white text-sm">
             <p className="font-light">
-              Built with React.js and Tailwind CSS
+              Built with Preact and Tailwind CSS
               <span className="mx-2">•</span>
               Last updated {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
             </p>
@@ -313,81 +344,50 @@ export function App() {
       </footer>
 
       {/* Theme Toggle Button */}
-      <button
+      <FloatingActionButton
         onClick={() => setDarkMode(!darkMode)}
-        className="fixed bottom-4 right-4 z-10 p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg print:hidden group/theme cursor-pointer"
+        className="bottom-4"
+        label={darkMode ? 'Show light mode' : 'Show dark mode'}
+        pressed={darkMode}
       >
         {darkMode ? <FaSun /> : <FaMoon />}
-        <span
-          className="absolute right-full mr-2 top-1/2 -translate-y-1/2 px-2 py-1 text-sm text-white bg-gray-800 rounded opacity-0 invisible group-hover/theme:visible group-hover/theme:opacity-100 transition-all duration-200 whitespace-nowrap">
-          {darkMode ? 'Show light mode' : 'Show dark mode'}
-        </span>
-      </button>
+      </FloatingActionButton>
 
       {/* Summary Toggle Button */}
-      <button
+      <FloatingActionButton
         onClick={() => setShortVersion(!shortVersion)}
-        className="fixed bottom-16 right-4 z-10 p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg print:hidden group/sum cursor-pointer"
+        className="bottom-16"
+        label={shortVersion ? 'Show full version' : 'Show short version'}
+        pressed={shortVersion}
       >
         {shortVersion ? <FaBookOpen /> : <FaNoteSticky />}
-        <span
-          className="absolute right-full mr-2 top-1/2 -translate-y-1/2 px-2 py-1 text-sm text-white bg-gray-800 rounded opacity-0 invisible group-hover/sum:visible group-hover/sum:opacity-100 transition-all duration-200 whitespace-nowrap">
-          {shortVersion ? 'Show full version' : 'Show short version'}
-        </span>
-      </button>
+      </FloatingActionButton>
 
       {/* Timeline View Toggle Button */}
-      <button
+      <FloatingActionButton
         onClick={() => setTimelineView(timelineView === 'company' ? 'chronological' : 'company')}
-        className="fixed bottom-28 right-4 z-10 p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg print:hidden group/view cursor-pointer"
+        className="bottom-28"
+        label={timelineView === 'company' ? 'Show chronological view' : 'Show company view'}
+        pressed={timelineView === 'chronological'}
       >
         {timelineView === 'company' ? <FaListUl /> : <FaBuilding />}
-        <span
-          className="absolute right-full mr-2 top-1/2 -translate-y-1/2 px-2 py-1 text-sm text-white bg-gray-800 rounded opacity-0 invisible group-hover/view:visible group-hover/view:opacity-100 transition-all duration-200 whitespace-nowrap">
-          {timelineView === 'company' ? 'Show chronological view' : 'Show company view'}
-        </span>
-      </button>
+      </FloatingActionButton>
 
-      {/* Print Button with Dropdown */}
-      <div className="fixed bottom-40 right-4 z-10 print:hidden group">
-        <button
-          onClick={() => {
-            const ShortVersionCopy = shortVersion
-            setShortVersion(false)
-            setTimeout(() => window.print(), 100)
-            // Reset after printing
-            setTimeout(() => setShortVersion(ShortVersionCopy), 500)
-          }}
-          className="relative p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg group/btn cursor-pointer"
-        >
-          <FaPrint />
-          <span
-            className="absolute right-full mr-2 top-1/2 -translate-y-1/2 px-2 py-1 text-sm text-white bg-gray-800 rounded opacity-0 invisible group-hover/btn:visible group-hover/btn:opacity-100 transition-all duration-200 whitespace-nowrap">
-            Print full CV
-          </span>
-        </button>
+      <FloatingActionButton
+        onClick={() => handlePrint(false)}
+        className="bottom-40"
+        label="Print full CV"
+      >
+        <FaPrint />
+      </FloatingActionButton>
 
-        {/* Dropdown Menu */}
-        <div
-          className="absolute bottom-full right-0 mb-2 flex flex-col gap-2 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200">
-          <button
-            onClick={() => {
-              const ShortVersionCopy = shortVersion
-              setShortVersion(true)
-              setTimeout(() => window.print(), 100)
-              // Reset after printing
-              setTimeout(() => setShortVersion(ShortVersionCopy), 500)
-            }}
-            className="relative p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white shadow-lg group/btn1 cursor-pointer"
-          >
-            <FaPrint />
-            <span
-              className="absolute right-full mr-2 top-1/2 -translate-y-1/2 px-2 py-1 text-sm text-white bg-gray-800 rounded opacity-0 invisible group-hover/btn1:visible group-hover/btn1:opacity-100 transition-all duration-200 whitespace-nowrap">
-              Print short version
-            </span>
-          </button>
-        </div>
-      </div>
+      <FloatingActionButton
+        onClick={() => handlePrint(true)}
+        className="bottom-52"
+        label="Print short CV"
+      >
+        <FaPrint />
+      </FloatingActionButton>
     </div>
   )
 }
