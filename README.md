@@ -2,7 +2,7 @@
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-brightgreen)](https://alimirlou.github.io)
 
-A modern, responsive portfolio and CV website built with React.js and Tailwind CSS. Features both light and dark modes, print-friendly layouts, and both full and condensed versions of the CV.
+A modern, responsive portfolio and CV website built with Preact and Tailwind CSS. Features both light and dark modes, print-friendly layouts, and both full and condensed versions of the CV.
 
 ## About Me
 
