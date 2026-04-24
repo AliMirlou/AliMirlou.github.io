@@ -1,6 +1,7 @@
 // URL mapping for frameworks and technologies
 const urlMap = {
   'algorithms': 'https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/',
+  'aws': 'https://aws.amazon.com/',
   'azure': 'https://azure.microsoft.com',
   'c': 'https://en.cppreference.com/w/c',
   'css': 'https://developer.mozilla.org/en-US/docs/Web/CSS',
@@ -19,6 +20,7 @@ const urlMap = {
   'minio': 'https://min.io/',
   'mongodb': 'https://www.mongodb.com',
   'next.js': 'https://nextjs.org',
+  'nodedotjs': 'https://nodejs.org/',
   'postgresql': 'https://www.postgresql.org/',
   'python': 'http://python.org/',
   'oop': 'https://web.archive.org/web/20100717111134/http://history.siam.org/sup/Fox_1960_LISP.pdf#page=91',
@@ -41,7 +43,7 @@ export default function SkillBadge({ name, formattedName, darkMode = false }) {
   }
 
   const url = urlMap[formattedName] || '#'
-  
+
   // Add caching parameters to the shields.io URL
   const shieldsUrl = `https://img.shields.io/badge/${name}-${darkMode ? '000' : '5a6272'}?logo=${formattedName}&cacheSeconds=31560000`
 

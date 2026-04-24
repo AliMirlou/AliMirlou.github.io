@@ -1,5 +1,10 @@
 export const companies = [
   {
+    name: "Kaman",
+    url: "https://kaman.ir",
+    location: "Tehran, Iran"
+  },
+  {
     name: "RoboEpics",
     url: "https://roboepics.com",
     location: "Tehran, Iran"
@@ -28,9 +33,27 @@ export const companies = [
 
 export const positions = [
   {
+    company: "Kaman",
+
+    startDate: "2025-09",
+
+    title: "Back End Developer",
+    employmentType: "Full-time, On-site",
+    project: "Shirdal",
+    projectUrl: "https://kaman.ir",
+    description: `**Shirdal** is a secure, enterprise-grade **video management platform for CCTV systems**, supporting more than **3000 camera types**, over **70 domestic and international brands**, and also supporting the **ONVIF** protocol, allowing it to work with a wide range of cameras and NVR devices, with features such as flexible recording scheduling, **encrypted data storage**, **secure internal communications**, comprehensive alarming system and integration with access control, **AI analytics** and centralized monitoring systems.`,
+    summary: "**Shirdal** is a secure enterprise **video management platform for CCTV systems**, supporting **3,000+ camera types**, **70+ brands**, **ONVIF** compatibility, **encrypted storage**, advanced alarms, flexible recording, and integration with access control, **AI analytics**, and centralized monitoring systems.",
+    skills: [
+      { name: "Node.js", formattedName: "nodedotjs" },
+      { name: "AWS" },
+      { name: "Kubernetes" }
+    ]
+  },
+  {
     company: "RoboEpics",
 
     startDate: "2022-10",
+    endDate: "2026-01",
 
     title: "Software Engineer",
     employmentType: "Full-time, On-site",
@@ -43,7 +66,7 @@ Our small team of three, developed Xerac in less than a week and successfully sc
 Initially, it was developed in **Express.js** and **Next.js** but was fully rewritten in **Next.js** by me and [open-sourced](https://github.com/XeracAI/Xerac), to benefit from **Next.js Streaming Server Rendering** and the **Vercel AI SDK**.`,
     summary: "Led a three-person team to develop **Xerac**, an LLM platform, scaling to **5000+ monthly users** with no marketing and only with simple UX, practical features and performance. Developed **40+ private assistants** for companies using **FastAPI**, various RAG approaches and LLMs, deployed on **Kubernetes**. Rewritten and [open-sourced](https://github.com/XeracAI/Xerac) from Express.js/Next.js to pure **Next.js** to leverage **Streaming Server Rendering** and **Vercel AI SDK**.",
     skills: [
-      { name: "Next.js" },
+      { name: "Next.js", formattedName: "nextdotjs" },
       { name: "Tailwind CSS", formattedName: "tailwindcss" },
       { name: "Express.js", formattedName: "express" },
       { name: "FastAPI" },
@@ -80,7 +103,7 @@ The backend services, GPU agent, and CLI were implemented in **Go**, while the f
     skills: [
       { name: "Go" },
       { name: "Docker" },
-      { name: "Next.js" },
+      { name: "Next.js", formattedName: "nextdotjs" },
       { name: "Google Colab", formattedName: "googlecolab" }
     ]
   },
@@ -88,6 +111,7 @@ The backend services, GPU agent, and CLI were implemented in **Go**, while the f
     company: "RoboEpics",
 
     startDate: "2020-01",
+    endDate: "2025-08",
 
     title: "Software Engineer",
     employmentType: "Full-time, On-site",
@@ -110,7 +134,7 @@ The backend was built with **Django REST framework** for robust API development,
     skills: [
       { name: "Django" },
       { name: "PostgreSQL" },
-      { name: "Next.js" },
+      { name: "Next.js", formattedName: "nextdotjs" },
       { name: "RabbitMQ" },
       { name: "Gitlab" },
       { name: "Google Colab", formattedName: "googlecolab" },
